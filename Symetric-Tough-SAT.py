@@ -24,9 +24,10 @@
 
 # for ToughSat Project
 
-##########
-#Modified by Robert Amador and Chen-Fu Chiang for SymmetricSAT Project
-##########
+########################################################################
+# Modified by Robert Amador and Chen-Fu Chiang for SymmetricSAT Project
+# # Copyright (C) 2021 by Robert Amador, Chen-Fu Chiang
+########################################################################
 
 import math
 import copy
