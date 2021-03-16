@@ -52,7 +52,7 @@ def make_var():
 	global postfix_counter
 	postfix_counter = postfix_counter + 1
 	if postfix_counter%10000 == 0:
-		print postfix_counter
+		print (postfix_counter)
 	
 	return "X" + str(postfix_counter)
 
@@ -554,18 +554,18 @@ def generate_instance(NUM_CLAUSES,NUM_VARIABLES,LIT_PER_CLAUSE,op_3cnf):
 	#assign random sets of size NUM_VARIABLES to rand array
 	for x in range(MAX_OCCURANCE):
 		##if checking is doen here we wil need to check end two and beginning two
-		rand_array.append(random.sample(xrange(NUM_VARIABLES),NUM_VARIABLES))
+		rand_array.append(random.sample(range(NUM_VARIABLES),NUM_VARIABLES))
 		if x >= 1:
 			if((x*NUM_VARIABLES)%3 == 2):
 				#compare L2F1
 				while (compare(rand_array[x][0], rand_array[x-1][NUM_VARIABLES-2], rand_array[x-1][NUM_VARIABLES-1]) == 1):
 					#while a value is similar shuffle the next array
-					rand_array[x]=random.sample(xrange(NUM_VARIABLES),NUM_VARIABLES)
+					rand_array[x]=random.sample(range(NUM_VARIABLES),NUM_VARIABLES)
 			elif((x*NUM_VARIABLES)%3 == 1):
 				#compare L1F2
 				while (compare(rand_array[x-1][NUM_VARIABLES-1], rand_array[x][0], rand_array[x][1]) == 1):
 					#while a value is similar shuffle the next array
-					rand_array[x]=random.sample(xrange(NUM_VARIABLES),NUM_VARIABLES)
+					rand_array[x]=random.sample(range(NUM_VARIABLES),NUM_VARIABLES)
 
 	#PROBLEM
 		#this loop wil deiniately exicute more times than necissary since we cant be sure what we are comparing
@@ -580,9 +580,9 @@ def generate_instance(NUM_CLAUSES,NUM_VARIABLES,LIT_PER_CLAUSE,op_3cnf):
 	# VS = (0, [2, 0, 5])
 	row = 0		#position of current row value in rand_array
 	col = 0		#position of current col value in rand_array
-	for i in range(CLAUSE_COUNT):
+	for i in range(int(CLAUSE_COUNT)):
 		lits = []
-		vs = random.sample(xrange(NUM_VARIABLES),LIT_PER_CLAUSE)
+		vs = random.sample(range(NUM_VARIABLES),LIT_PER_CLAUSE)
 		j = 0
 		for j in range(LIT_PER_CLAUSE):
 			
